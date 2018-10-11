@@ -5,7 +5,9 @@
 //     SD card code: 
 //     - http://www.vishnumaiea.in/projects/hardware/interfacing-catalex-micro-sd-card-module
 //     - https://github.com/vishnumaiea/Arduino-Snippets/blob/master/SD-Card/SD_Init.ino
-
+//
+//     GPS code:
+//     - https://idyl.io/arduino/how-to/interface-gps-module-arduino/
 
 // Importing SPI and SD
 
