@@ -16,7 +16,7 @@
 // RXpin corresponds to the T-Minus pin connected to TX on the GPS
 // TXpin is connected to RX on the GPS
 // Defined Baud rate is 9600
- static const int RXpin = 34, TXpin = 3;
+ static const int RXpin = 34, TXpin = 35;
  static const uint32_t GPSBaud = 9600;
 
 // Prep the connection
@@ -29,10 +29,14 @@ void setup()
   // and the GPS connection with the predefined Baud rate
   Serial.begin(115200);
   ss.begin(GPSBaud);
+
+  // Pull both pins up
+  pinMode(RXpin, HIGH);
+  pinMode(TXpin, HIGH);
 }
 
 void loop() {
   // Output raw GPS data
   Serial.print(ss.read());
-
+  delay(500);
 }
