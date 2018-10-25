@@ -15,9 +15,11 @@ int Y0,Y1,Y_out;
 int Z1,Z0,Z_out;
 float Xa,Ya,Za;
 
-void setup() {
+void acc_init() {
+  /*
+   * Function instantiates I2C transmission with ADXL345
+   */
   Wire.begin(); // Initiate the Wire library    
-  Serial.begin(9600);    
   delay(100);
   
   Wire.beginTransmission(ADXAddress);
@@ -33,7 +35,7 @@ void setup() {
 
   
 }
-void loop() {
+void acc_log() {
   // X-axis
   Wire.beginTransmission(ADXAddress); // Begin transmission to the Sensor 
   //Ask the particular registers for data
@@ -79,10 +81,17 @@ void loop() {
     Za=Z_out/256.0;
   }
   // Prints the data on the Serial Monitor
-  Serial.print("Xa= ");
-  Serial.print(Xa);
-  Serial.print("   Ya= ");
-  Serial.print(Ya);
-  Serial.print("   Za= ");
-  Serial.println(Za);
+//  Serial.print("Xa= ");
+//  Serial.print(Xa);
+//  Serial.print("   Ya= ");
+//  Serial.print(Ya);
+//  Serial.print("   Za= ");
+//  Serial.println(Za);
+  
+  file.print(Xa);
+  file.print(',');
+  file.print(Ya);
+  file.print(',');
+  file.print(Za);
+  file.print(',');
 }
